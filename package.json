@@ -1,0 +1,20 @@
+{
+  "name": "mvp2",
+  "version": "1.0.0",
+  "description": "full-stack app that performs CRUD operations from client inputs",
+  "main": "server.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "sql",
+    "html",
+    "css",
+    "postgres",
+    "js"
+  ],
+  "author": "SteamedMilkBun",
+  "license": "ISC"
+}

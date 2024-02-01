@@ -205,7 +205,7 @@ app.post('/item', (req, res) => {
 })
 
 //patch item
-app.patch('/character/:id', (req, res) => {
+app.patch('/item/:id', (req, res) => {
     const id = Number.parseInt(req.params.id);
     const { item_name, item_value} = req.body;
 

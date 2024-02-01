@@ -52,6 +52,8 @@
 #list-char {
     grid-area:  list-char;
     display: grid;
+    justify-content: center;
+    align-items: stretch;
     border-style: solid;
     border-color: black;
     border-width: 1px;

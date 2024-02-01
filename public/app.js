@@ -33,9 +33,9 @@ const showSelectedChar = (char) => {
     const { char_id, char_name, char_race } = char;
     const $idDiv = $(`<div>char_id: ${char_id}</div>`)
                             .addClass('char-div');
-    const $nameDiv = $(`<div>char_id: ${char_name}</div>`)
+    const $nameDiv = $(`<div>char_name: ${char_name}</div>`)
                             .addClass('char-div');
-    const $raceDiv = $(`<div>char_id: ${char_race}</div>`)
+    const $raceDiv = $(`<div>char_race: ${char_race}</div>`)
                             .addClass('char-div');
     $charContainer.append($idDiv, $nameDiv, $raceDiv);
 }

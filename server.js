@@ -38,9 +38,9 @@ app.use(express.static('public'));
 app.get('/character', (req, res) => {
     console.log(`get request to char table`);
     pool.query(`SELECT * FROM character`)
-    .then((charData) => {
-        console.log(charData.rows);
-        res.json(charData.rows);
+    .then((data) => {
+        console.log(data.rows);
+        res.json(data.rows);
     })
     .catch((err) => {
         console.log(err.message);
@@ -53,14 +53,14 @@ app.get('/character/:name', (req, res) => {
     const name = '%' + req.params.name + '%';
     console.log(`Queried table character for name: ${name}`);
     pool.query(`SELECT * FROM character WHERE char_name ILIKE $1`, [name])
-    .then((charData) => {
-        if (charData.rows.length === 0) {
+    .then((data) => {
+        if (data.rows.length === 0) {
             console.log(`No matches for: ${name}.`)
             res.sendStatus(400);
             return;
         }
-        console.log(charData.rows);
-        res.json(charData.rows);
+        console.log(data.rows);
+        res.json(data.rows);
     })
     .catch((err) => {
         console.log(err.message);
@@ -81,10 +81,10 @@ app.post('/character', (req, res) => {
     }
 
     pool.query('INSERT INTO character (char_name, char_race) VALUES ($1, $2) RETURNING *', [name, race])
-    .then((charData) => {
+    .then((data) => {
         console.log("Created character:");
-        console.log(charData.rows[0]);
-        res.json(charData.rows[0]);
+        console.log(data.rows[0]);
+        res.json(data.rows[0]);
     })
     .catch((err) => {
         console.log(err.message);
@@ -152,9 +152,9 @@ app.delete('/character/:id', (req, res) => {
 app.get('/item', (req, res) => {
     console.log(`get request to item table`);
     pool.query(`SELECT * FROM item`)
-    .then((itemData) => {
-        console.log(itemData.rows);
-        res.json(itemData.rows);
+    .then((data) => {
+        console.log(data.rows);
+        res.json(data.rows);
     })
     .catch((err) => {
         console.log(err.message);
@@ -163,6 +163,24 @@ app.get('/item', (req, res) => {
 })
 
 //get one item
+app.get('/character/:name', (req, res) => {
+    const name = '%' + req.params.name + '%';
+    console.log(`Queried item table for name: ${name}`);
+    pool.query(`SELECT * FROM item WHERE item_name ILIKE $1`, [name])
+    .then((data) => {
+        if (data.rows.length === 0) {
+            console.log(`No matches for: ${name}.`)
+            res.sendStatus(400);
+            return;
+        }
+        console.log(data.rows);
+        res.json(data.rows);
+    })
+    .catch((err) => {
+        console.log(err.message);
+        res.sendStatus(500);
+    })
+})
 
 //post to char table
 

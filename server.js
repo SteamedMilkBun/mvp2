@@ -105,7 +105,6 @@ app.patch('/character/:id', (req, res) => {
                 [name, race, id])
     .then((patchData) => {
         console.log(`Successfully edited character at id: ${id}`);
-        console.log(patchData.rows);
         console.log(patchData.rows[0]);
         res.json(patchData.rows[0])
     })

@@ -93,6 +93,27 @@ app.post('/character', (req, res) => {
 })
 
 //patch char
+app.patch('/character/:id', (req, res) => {
+    const id = Number.parseInt(req.params.id);
+    const name = req.body.char_name;
+    const race = req.body.char_race;
+
+    pool.query(`UPDATE character SET 
+                char_name = COALESCE($1, char_name),
+                char_race = COALESCE($2, char_race)
+                WHERE char_id = $3`, 
+                [name, race, id])
+    .then((patchData) => {
+        console.log(`Successfully edited character at id: ${id}`);
+        console.log(patchData.rows);
+        console.log(patchData.rows[0]);
+        res.json(patchData.rows[0])
+    })
+    .catch((err)=>{
+        console.log(err);
+        res.sendStatus(500);
+    })
+})
 
 //delete char
 

@@ -221,7 +221,7 @@ app.patch('/item/:id', (req, res) => {
                 WHERE item_id = $3 RETURNING *`, 
                 [item_name, item_value, id])
     .then((data) => {
-        console.log(`Successfully edited character at id: ${id}`);
+        console.log(`Successfully edited item at id: ${id}`);
         console.log(data.rows[0]);
         res.json(data.rows[0])
     })

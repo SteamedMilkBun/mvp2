@@ -69,6 +69,28 @@ app.get('/character/:name', (req, res) => {
 })
 
 //post to char table
+app.post('/character', (req, res) => {
+    const name = req.body.char_name;
+    const race = req.body.char_race;
+
+    //edge case outsides of existing races
+    if(name.length === 0 || race.length === 0){
+        console.log("Name and/or race not entered");
+        res.sendStatus(400);
+        return;
+    }
+
+    pool.query('/INSERT INTO character (char_name, char_race) VALUES ($1, $2) RETURNING *', [name, race])
+    .then((charData) => {
+        console.log("Created character:");
+        console.log(charData.rows[0]);
+        res.json(charData.rows[0]);
+    })
+    .catch((err) => {
+        console.log(err.message);
+        res.sendStatus(500);
+    })
+})
 
 //patch char
 

@@ -67,6 +67,8 @@
 #list-item {
     grid-area:  list-item;
     display: grid;
+    justify-content: center;
+    align-items: stretch;
     border-style: solid;
     border-color: black;
     border-width: 1px;

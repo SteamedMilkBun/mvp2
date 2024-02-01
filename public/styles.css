@@ -1,0 +1,49 @@
+.main-container {
+    display: grid;
+    grid-template-columns: 25% auto 25%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "character char-item-container item"
+        "character options item";
+    border-style: inset;
+    border-color: black;
+    border-width: 3px;
+    height: 700px;
+}
+
+#character-container {
+    grid-area: character;
+    border-style: solid;
+    border-color: burlywood;
+    border-width: 1px;
+    height: auto;
+    width: auto;
+}
+
+#item-container {
+    grid-area:  item;
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px;
+    height: auto;
+    width: auto;
+}
+
+#options-container {
+    grid-area:  options;
+    border-style: solid;
+    border-color: orchid;
+    border-width: 1px;
+    height: auto;
+    width: auto;
+}
+
+#char-item-container {
+    grid-area:  options;
+    display: grid;
+    border-style: solid;
+    border-color: orange;
+    border-width: 1px;
+    height: auto;
+    width: auto;
+}

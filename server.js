@@ -50,9 +50,9 @@ app.get('/character', (req, res) => {
 
 //get one char
 app.get('/character/:name', (req, res) => {
-    const name = req.params.name;
+    const name = '%' + req.params.name + '%';
     console.log(`Queried table character for name: ${name}`);
-    pool.query(`SELECT * FROM character WHERE char_name ILIKE '%${name}%'`)
+    pool.query(`SELECT * FROM character WHERE char_name ILIKE '${name}'`)
     .then((charData) => {
         if (charData.rows.length === 0) {
             console.log(`No matches for: ${name}.`)

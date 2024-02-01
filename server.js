@@ -109,10 +109,10 @@ app.patch('/character/:id', (req, res) => {
                 char_race = COALESCE($2, char_race)
                 WHERE char_id = $3 RETURNING *`, 
                 [name, race, id])
-    .then((patchData) => {
+    .then((data) => {
         console.log(`Successfully edited character at id: ${id}`);
-        console.log(patchData.rows[0]);
-        res.json(patchData.rows[0])
+        console.log(data.rows[0]);
+        res.json(data.rows[0])
     })
     .catch((err)=>{
         console.log(err);
@@ -205,6 +205,31 @@ app.post('/item', (req, res) => {
 })
 
 //patch item
+app.patch('/character/:id', (req, res) => {
+    const id = Number.parseInt(req.params.id);
+    const { item_name, item_value} = req.body;
+
+    if(Number.isNaN(id)){
+        console.log(`Bad Request: ${id} is a ${typeof id}, not a number.`);
+        res.sendStatus(400);
+        return;
+    }
+
+    pool.query(`UPDATE item SET 
+                item_name = COALESCE($1, item_name),
+                item_value = COALESCE($2, item_value)
+                WHERE item_id = $3 RETURNING *`, 
+                [item_name, item_value, id])
+    .then((data) => {
+        console.log(`Successfully edited character at id: ${id}`);
+        console.log(data.rows[0]);
+        res.json(data.rows[0])
+    })
+    .catch((err)=>{
+        console.log(err);
+        res.sendStatus(500);
+    })
+})
 
 //delete item
 app.delete('/item/:id', (req, res) => {

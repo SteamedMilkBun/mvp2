@@ -139,8 +139,8 @@ app.delete('/character/:id', (req, res) => {
             res.sendStatus(404);
             return;
         }
-        console.log(deletedChar.rows);
-        res.json(deletedChar.rows);
+        console.log(`Deleted ${deletedChar.rows[0]}`);
+        res.json(deletedChar.rows[0]);
     })
     .catch((err) => {
         console.log(err);

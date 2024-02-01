@@ -133,14 +133,14 @@ app.delete('/character/:id', (req, res) => {
     console.log(`Want to delete character with id: ${id}`);
 
     pool.query(`DELETE FROM character WHERE char_id = $1 RETURNING *`, [id])
-    .then((deletedChar) => {
-        if (deletedChar.rows.length === 0) {
+    .then((data) => {
+        if (data.rows.length === 0) {
             console.log(`Nothing found at id: ${id} to delete`);
             res.sendStatus(404);
             return;
         }
-        console.log(`Deleted ${deletedChar.rows[0].char_name}`);
-        res.json(deletedChar.rows[0]);
+        console.log(`Deleted ${data.rows[0].char_name}`);
+        res.json(data.rows[0]);
     })
     .catch((err) => {
         console.log(err);
@@ -204,9 +204,35 @@ app.post('/item', (req, res) => {
     })
 })
 
-//patch char
+//patch item
 
-//delete char
+//delete item
+app.delete('/item/:id', (req, res) => {
+    const id = Number.parseInt(req.params.id);
+
+    if(Number.isNaN(id)){
+        console.log(`Bad Request: ${id} is a ${typeof id}, not a number.`);
+        res.sendStatus(400);
+        return;
+    }
+
+    console.log(`Want to delete item with id: ${id}`);
+
+    pool.query(`DELETE FROM item WHERE item_id = $1 RETURNING *`, [id])
+    .then((data) => {
+        if (data.rows.length === 0) {
+            console.log(`Nothing found at id: ${id} to delete`);
+            res.sendStatus(404);
+            return;
+        }
+        console.log(`Deleted ${data.rows[0].item_name}`);
+        res.json(data.rows[0]);
+    })
+    .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
+    })
+})
 
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`);

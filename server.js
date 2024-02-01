@@ -149,6 +149,18 @@ app.delete('/character/:id', (req, res) => {
 })
 
 //get all item
+app.get('/item', (req, res) => {
+    console.log(`get request to item table`);
+    pool.query(`SELECT * FROM item`)
+    .then((itemData) => {
+        console.log(itemData.rows);
+        res.json(itemData.rows);
+    })
+    .catch((err) => {
+        console.log(err.message);
+        res.sendStatus(500);
+    })
+})
 
 //get one item
 

@@ -1,0 +1,22 @@
+INSERT INTO character (char_name, char_race) VALUES ('Balgruuf the Greater', 'Nord');
+INSERT INTO character (char_name, char_race) VALUES ('Farengar', 'Nord');
+INSERT INTO character (char_name, char_race) VALUES ('Maiq the Liar', 'Khajeet');
+INSERT INTO character (char_name, char_race) VALUES ('General Tullius', 'Imperial');
+INSERT INTO character (char_name, char_race) VALUES ('Derkeethus', 'Argonian');
+INSERT INTO character (char_name, char_race) VALUES ('Cicero', 'Imperial');
+INSERT INTO character (char_name, char_race) VALUES ('Mjoll the Lioness', 'Nord');
+INSERT INTO character (char_name, char_race) VALUES ('Ulfric Stormcloak', 'Nord');
+INSERT INTO character (char_name, char_race) VALUES ('Faendal', 'Wood Elf');
+INSERT INTO character (char_name, char_race) VALUES ('Nivula Hlaalu', 'Dark Elf');
+
+INSERT INTO item (item_name, item_value, owned_by_char_id) VALUES ('Sweet Roll', '3', 1);
+INSERT INTO item (item_name, item_value) VALUES ('Seared Salmon Fillet', '5');
+INSERT INTO item (item_name, item_value) VALUES ('Cabbage', '2');
+INSERT INTO item (item_name, item_value) VALUES ('Honey Nut Treat', '5');
+INSERT INTO item (item_name, item_value) VALUES ('Honningbrew Mead', '30');
+INSERT INTO item (item_name, item_value) VALUES ('Steel Ingot', '47');
+INSERT INTO item (item_name, item_value) VALUES ('Vegetable Soup', '7');
+INSERT INTO item (item_name, item_value) VALUES ('Skooma', '50');
+INSERT INTO item (item_name, item_value) VALUES ('Charred Skeever Meat', '6');
+INSERT INTO item (item_name, item_value) VALUES ('Human Heart', '20');
+INSERT INTO item (item_name, item_value) VALUES ('Grand Soul Gem', '2000');

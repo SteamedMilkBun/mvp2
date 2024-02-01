@@ -25,6 +25,9 @@
 
 #item-container {
     grid-area:  item;
+    display: grid;
+    justify-content: center;
+    align-items:center;
     border-style: solid;
     border-color: gray;
     border-width: 1px;

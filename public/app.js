@@ -12,8 +12,8 @@ const showAllChar = () => {
         return result.json();
     })
     .then((chars) => {
-        console.log(chars.rows);
-        for(let char of chars.rows) {
+        console.log(chars);
+        for(let char of chars) {
             const $charDiv = $(`<div>${char.char_name}</div>`)
                             .addclass('char-div');
             $listChar.append($charDiv);

@@ -98,6 +98,12 @@ app.patch('/character/:id', (req, res) => {
     const name = req.body.char_name;
     const race = req.body.char_race;
 
+    if(Number.isNaN(id)){
+        console.log(`Bad Request: ${id} is a ${typeof id}, not a number.`);
+        res.sendStatus(400);
+        return;
+    }
+
     pool.query(`UPDATE character SET 
                 char_name = COALESCE($1, char_name),
                 char_race = COALESCE($2, char_race)

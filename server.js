@@ -139,7 +139,7 @@ app.delete('/character/:id', (req, res) => {
             res.sendStatus(404);
             return;
         }
-        console.log(`Deleted ${deletedChar.rows[0]}`);
+        console.log(`Deleted ${deletedChar.rows[0].char_name}`);
         res.json(deletedChar.rows[0]);
     })
     .catch((err) => {

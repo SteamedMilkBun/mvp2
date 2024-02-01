@@ -37,7 +37,7 @@ app.use(express.static('public'));
 //get all char
 app.get("/char", (req, res) => {
     console.log(`get request to char table`);
-    pool.query(`SELECT * FROM char`)
+    pool.query(`SELECT * FROM character`)
     .then((charData) => {
         console.log(charData.rows);
         res.json(charData.rows);

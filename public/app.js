@@ -9,7 +9,7 @@ const showAllChar = () => {
     console.log('fetch character');
     fetch("character")
     .then((result) => {
-        result.json();
+        return result.json();
     })
     .then((chars) => {
         console.log(chars.rows);

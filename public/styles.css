@@ -70,9 +70,10 @@
 }
 
 .char-div {
+    border-radius: 3px;
     border-style: solid;
     border-color: black;
     border-width: 1px;
-    height: 12px;
+    height: 15px;
     width: auto;
 }

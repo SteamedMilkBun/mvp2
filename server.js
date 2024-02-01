@@ -163,14 +163,14 @@ app.get('/item', (req, res) => {
 })
 
 //get one item
-app.get('/character/:name', (req, res) => {
-    const name = '%' + req.params.item_name + '%';
+app.get('/item/:name', (req, res) => {
+    const name = '%' + req.params.name + '%';
     console.log(`Queried item table for name: ${name}`);
     pool.query(`SELECT * FROM item WHERE item_name ILIKE $1`, [name])
     .then((data) => {
         if (data.rows.length === 0) {
             console.log(`No matches for: ${name}.`)
-            res.sendStatus(400);
+            res.sendStatus(404);
             return;
         }
         console.log(data.rows);

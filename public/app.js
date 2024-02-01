@@ -6,7 +6,6 @@ const $listChar = $('#list-char');
 const $listItem = $('#list-item');
 
 const showAllChar = () => {
-    console.log('fetch character');
     fetch("character")
     .then((result) => {
         return result.json();
@@ -29,6 +28,7 @@ const showAllChar = () => {
 }
 
 const showSelectedChar = (target) => {
+    console.log(target);
     const { char_id, char_name, char_race } = target;
     const $idDiv = $(`<div>char_id: ${char_id}</div>`)
                             .addClass('char-div');

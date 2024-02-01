@@ -11,7 +11,7 @@ const showAllChar = () => {
         return result.json();
     })
     .then((chars) => {
-        console.log(chars);
+        $listChar.empty();
         for(let char of chars) {
             const $charDiv = $(`<div>${char.char_name}</div>`)
                             .addClass('char-div')
@@ -46,7 +46,7 @@ const showAllItems = () => {
         return result.json();
     })
     .then((items) => {
-        console.log(items);
+        $listItem.empty();
         for(let item of items) {
             const $itemDiv = $(`<div>${item.item_name}</div>`)
                             .addClass('char-div')
@@ -77,6 +77,10 @@ const showSelectedItem = (item) => {
                             .addClass('char-div');
 
     $itemContainer.append($idDiv, $nameDiv, $valueDiv, $ownedByDiv);
+}
+
+const createOptions = () => {
+    
 }
 
 showAllChar();

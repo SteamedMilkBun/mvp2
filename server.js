@@ -49,8 +49,17 @@ app.get('/character', (req, res) => {
 })
 
 //get one char
-app.get("/char/:name", (req, res) => {
-    
+app.get('/char/:name', (req, res) => {
+    const name = req.params.name;
+    pool.query(`SELECT * FROM character WHERE char_name ILIKE $1 RETURNING *`, [name])
+    .then((charData) => {
+        console.log(charData.rows);
+        res.json(charData.rows);
+    })
+    .catch((err) => {
+        console.log(err.message);
+        res.sendStatus(500);
+    })
 })
 
 //post to char table

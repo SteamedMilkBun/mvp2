@@ -15,8 +15,8 @@ const showAllChar = () => {
         for(let char of chars) {
             const $charDiv = $(`<div>${char.char_name}</div>`)
                             .addClass('char-div')
-                            .on('click', (event) => {
-                                showSelectedChar(event.target);
+                            .on('click', () => {
+                                showSelectedChar(char);
                             });
             $listChar.append($charDiv);
         }
@@ -27,9 +27,10 @@ const showAllChar = () => {
     })
 }
 
-const showSelectedChar = (target) => {
-    console.log(target);
-    const { char_id, char_name, char_race } = target;
+const showSelectedChar = (char) => {
+    $charContainer.empty();
+    console.log(char);
+    const { char_id, char_name, char_race } = char;
     const $idDiv = $(`<div>char_id: ${char_id}</div>`)
                             .addClass('char-div');
     const $nameDiv = $(`<div>char_id: ${char_name}</div>`)

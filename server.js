@@ -49,7 +49,7 @@ app.get('/character', (req, res) => {
 })
 
 //get one char
-app.get('/char/:name', (req, res) => {
+app.get('/character/:name', (req, res) => {
     const name = req.params.name;
     console.log(`Queried table character for name: ${name}`);
     pool.query(`SELECT * FROM character WHERE char_name ILIKE $1 RETURNING *`, [name])

@@ -164,7 +164,7 @@ app.get('/item', (req, res) => {
 
 //get one item
 app.get('/character/:name', (req, res) => {
-    const name = '%' + req.params.name + '%';
+    const name = '%' + req.params.item_name + '%';
     console.log(`Queried item table for name: ${name}`);
     pool.query(`SELECT * FROM item WHERE item_name ILIKE $1`, [name])
     .then((data) => {

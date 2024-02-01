@@ -7,7 +7,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const PORT = process.env.DATABASE_URL;
+const PORT = process.env.PORT;
 
 //const pgConnect = `postgresql://postgres:postgres@localhost:6432/pg_test_db`;
 

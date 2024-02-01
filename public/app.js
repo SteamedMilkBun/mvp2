@@ -73,14 +73,14 @@ const showSelectedItem = (item) => {
                             .addClass('char-div');
     const $valueDiv = $(`<div>item_value: ${item_value}</div>`)
                             .addClass('char-div');
-    const $ownedByDiv = $(`<div>item_value: ${owned_by_char_id}</div>`)
+    const $ownedByDiv = $(`<div>owned_by_char_id: ${owned_by_char_id}</div>`)
                             .addClass('char-div');
 
     $itemContainer.append($idDiv, $nameDiv, $valueDiv, $ownedByDiv);
 }
 
 const createOptions = () => {
-    
+
 }
 
 showAllChar();

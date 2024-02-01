@@ -80,3 +80,4 @@ const showSelectedItem = (item) => {
 }
 
 showAllChar();
+showAllItems();

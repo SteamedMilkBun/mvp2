@@ -80,7 +80,7 @@ app.post('/character', (req, res) => {
         return;
     }
 
-    pool.query('/INSERT INTO character (char_name, char_race) VALUES ($1, $2) RETURNING *', [name, race])
+    pool.query('INSERT INTO character (char_name, char_race) VALUES ($1, $2) RETURNING *', [name, race])
     .then((charData) => {
         console.log("Created character:");
         console.log(charData.rows[0]);

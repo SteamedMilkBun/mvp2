@@ -68,3 +68,7 @@ app.get("/char/:name", (req, res) => {
 //patch char
 
 //delete char
+
+app.listen(PORT, () => {
+    console.log(`Listening on port: ${PORT}`);
+})

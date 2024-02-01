@@ -40,4 +40,43 @@ const showSelectedChar = (char) => {
     $charContainer.append($idDiv, $nameDiv, $raceDiv);
 }
 
+const showAllItems = () => {
+    fetch("item")
+    .then((result) => {
+        return result.json();
+    })
+    .then((items) => {
+        console.log(items);
+        for(let item of items) {
+            const $itemDiv = $(`<div>${item.item_name}</div>`)
+                            .addClass('char-div')
+                            .on('click', () => {
+                                showSelectedItem(item);
+                            });
+            $listItem.append($itemDiv);
+        }
+    })
+    .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
+    })
+}
+
+const showSelectedItem = (item) => {
+    $itemContainer.empty();
+    console.log(item);
+    const { item_id, item_name, item_value, owned_by_char_id } = item;
+
+    const $idDiv = $(`<div>item_id: ${item_id}</div>`)
+                            .addClass('char-div');
+    const $nameDiv = $(`<div>item_name: ${item_name}</div>`)
+                            .addClass('char-div');
+    const $valueDiv = $(`<div>item_value: ${item_value}</div>`)
+                            .addClass('char-div');
+    const $ownedByDiv = $(`<div>item_value: ${owned_by_char_id}</div>`)
+                            .addClass('char-div');
+
+    $itemContainer.append($idDiv, $nameDiv, $valueDiv, $ownedByDiv);
+}
+
 showAllChar();

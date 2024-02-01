@@ -182,7 +182,27 @@ app.get('/item/:name', (req, res) => {
     })
 })
 
-//post to char table
+//post to item table
+app.post('/item', (req, res) => {
+    const { item_name, item_value } = req.body;
+
+    //edge case outsides of existing races
+    if(item_name.length === 0 || item_value.length === 0){
+        console.log("item_name and/or item_value not entered");
+        res.sendStatus(400);
+        return;
+    }
+
+    pool.query('INSERT INTO item (item_name, item_value) VALUES ($1, $2) RETURNING *', [item_name, item_value])
+    .then((data) => {
+        console.log(`Created ${data.rows[0].item_name} costing ${data.rows[0].item_value} gold`);
+        res.json(data.rows[0]);
+    })
+    .catch((err) => {
+        console.log(err.message);
+        res.sendStatus(500);
+    })
+})
 
 //patch char
 

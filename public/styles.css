@@ -4,7 +4,7 @@
     grid-template-rows: auto;
     grid-template-areas: 
         "character char-item-container item"
-        "character options item";
+        "list-char options list-item";
     border-style: inset;
     border-color: black;
     border-width: 3px;
@@ -31,6 +31,7 @@
 
 #options-container {
     grid-area:  options;
+    display: block;
     border-style: solid;
     border-color: orchid;
     border-width: 1px;
@@ -39,11 +40,35 @@
 }
 
 #char-item-container {
-    grid-area:  options;
+    grid-area:  list-item;
     display: grid;
     border-style: solid;
     border-color: orange;
     border-width: 1px;
     height: auto;
     width: auto;
+}
+
+#list-char {
+    grid-area:  list-char;
+    display: grid;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    height: auto;
+    width: auto;
+}
+
+#list-item {
+    grid-area:  list-item;
+    display: grid;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    height: auto;
+    width: auto;
+}
+
+.char-div {
+    
 }

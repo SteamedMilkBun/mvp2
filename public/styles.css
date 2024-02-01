@@ -70,11 +70,11 @@
 }
 
 .char-div {
-    align-self: center;
+    text-align: center;
     border-radius: 3px;
     border-style: solid;
     border-color: black;
     border-width: 1px;
-    height: 20px;
-    width: 150;
+    height: auto;
+    width: 150px;
 }

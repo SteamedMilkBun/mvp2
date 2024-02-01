@@ -52,7 +52,7 @@ app.get('/character', (req, res) => {
 app.get('/character/:name', (req, res) => {
     const name = req.params.name;
     console.log(`Queried table character for name: ${name}`);
-    pool.query(`SELECT * FROM character WHERE CONTAINS (char_name, '${name}')`)
+    pool.query(`SELECT * FROM character WHERE char_name ILIKE %$1%`, [name])
     .then((charData) => {
         if (charData.rows.length === 0) {
             console.log(`No matches for: ${name}.`)

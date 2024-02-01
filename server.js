@@ -35,7 +35,7 @@ app.use(express.static('public'));
 //const charController = charController(pool);
 
 //get all char
-app.get("/char", (req, res) => {
+app.get('/character', (req, res) => {
     console.log(`get request to char table`);
     pool.query(`SELECT * FROM character`)
     .then((charData) => {

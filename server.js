@@ -101,7 +101,7 @@ app.patch('/character/:id', (req, res) => {
     pool.query(`UPDATE character SET 
                 char_name = COALESCE($1, char_name),
                 char_race = COALESCE($2, char_race)
-                WHERE char_id = $3`, 
+                WHERE char_id = $3 RETURNING *`, 
                 [name, race, id])
     .then((patchData) => {
         console.log(`Successfully edited character at id: ${id}`);

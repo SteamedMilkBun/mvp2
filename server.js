@@ -7,20 +7,20 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const PORT = process.env.DATABASE_URL || 8000;
+const PORT = process.env.DATABASE_URL;
 
-const pgConnect = `postgresql://postgres:postgres@localhost:6432/pg_test_db`;
+//const pgConnect = `postgresql://postgres:postgres@localhost:6432/pg_test_db`;
 
-const pgURI = process.env.DATABASE_URL || pgConnect;
-console.log("pgURI: ", pgURI);
+//const pgURI = process.env.DATABASE_URL || pgConnect;
+//console.log("pgURI: ", pgURI);
 
 const pool = new pg.Pool({
-    connectionString: pgURI,
+    connectionString: process.env.DATABASE_URL,
 });
 
 pool.connect()
     .then((client) => {
-        console.log(`Connected to postgres using connection string ${pgURI}`);
+        console.log(`Connected to postgres using connection string ${process.env.DATABASE_URL}`);
         client.release();
     })
     .catch((err)=>{

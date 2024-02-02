@@ -38,7 +38,7 @@ const showSelectedChar = (char) => {
     const $raceDiv = $(`<div>char_race: ${char_race}</div>`)
                             .addClass('char-div');
     $charContainer.append($idDiv, $nameDiv, $raceDiv);
-    createCharOptions($idDiv, $nameDiv, $raceDiv);
+    createCharOptions(`${char_id}, ${char_name}, ${char_race}`);
 }
 
 const showAllItems = () => {
@@ -80,10 +80,13 @@ const showSelectedItem = (item) => {
     $itemContainer.append($idDiv, $nameDiv, $valueDiv, $ownedByDiv);
 }
 
-const createCharOptions = ($idDiv, $nameDiv, $raceDiv) => {
+const createCharOptions = (id, name, race) => {
     $('.all-inputs').empty();
     const $allInputsDiv = $(`<div class='all-inputs'></div>`);
-    $allInputsDiv.append($idDiv, $nameDiv, $raceDiv);
+    const $id = $(`<div id="inputs">${id}</div>`);
+    const $name = $(`<div id="inputs">${name}</div>`);
+    const $race = $(`<div id="inputs">${race}</div>`);
+    $allInputsDiv.append($id, $name, $race);
     $optionsContainer.append($allInputsDiv);
 }
 

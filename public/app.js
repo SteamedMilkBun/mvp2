@@ -38,7 +38,7 @@ const showSelectedChar = (char) => {
     const $raceDiv = $(`<div>char_race: ${char_race}</div>`)
                             .addClass('char-div');
     $charContainer.append($idDiv, $nameDiv, $raceDiv);
-    createCharOptions(`${char_id}, ${char_name}, ${char_race}`);
+    createCharOptions(char_id, char_name, char_race);
 }
 
 const showAllItems = () => {

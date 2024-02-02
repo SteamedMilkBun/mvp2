@@ -94,7 +94,14 @@
     grid-template-columns: 50% 50%;
     grid-template-rows: auto;
     grid-template-areas: 
-        "char-name-input char-race-input";
+        "inputs inputs";
+    border-style: dotted;
+    border-color: black;
+    border-width: 1px;
+    height: auto;
+}
+
+#inputs {
     border-style: dotted;
     border-color: black;
     border-width: 1px;

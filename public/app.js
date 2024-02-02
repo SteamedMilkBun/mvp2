@@ -17,6 +17,7 @@ const showAllChar = () => {
                             .addClass('char-div')
                             .on('click', () => {
                                 showSelectedChar(char);
+                                createCharOptions(char);
                             });
             $listChar.append($charDiv);
         }
@@ -79,10 +80,13 @@ const showSelectedItem = (item) => {
     $itemContainer.append($idDiv, $nameDiv, $valueDiv, $ownedByDiv);
 }
 
-const createOptions = () => {
+const createCharOptions = (char) => {
     const $allInputsDiv = $(`<div class='all-inputs'>Inputs Here</div>`);
+    for (let column in char) {
+        const $columnDiv = $(`<div id='inputs'>${column}</div>`);
+        $allInputsDiv.append($columnDiv);
+    }
     $optionsContainer.append($allInputsDiv);
-
 }
 
 showAllChar();

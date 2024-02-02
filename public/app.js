@@ -80,8 +80,11 @@ const showSelectedItem = (item) => {
 }
 
 const createOptions = () => {
+    const $allInputsDiv = $(`<div class='all-inputs'>Inputs Here</div>`);
+    $optionsContainer.append($allInputsDiv);
 
 }
 
 showAllChar();
 showAllItems();
+createOptions();

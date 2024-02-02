@@ -88,3 +88,15 @@
     height: auto;
     width: 150px;
 }
+
+.all-inputs {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "char-name-input char-race-input";
+    border-style: dotted;
+    border-color: black;
+    border-width: 1px;
+    height: auto;
+}

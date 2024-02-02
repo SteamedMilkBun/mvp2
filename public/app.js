@@ -81,7 +81,7 @@ const showSelectedItem = (item) => {
 }
 
 const createCharOptions = (id, name, race) => {
-    $('.all-inputs').empty();
+    $('.all-inputs').remove();
     const $allInputsDiv = $(`<div class='all-inputs'></div>`);
     const $id = $(`<div id="inputs">${id}</div>`);
     const $name = $(`<div id="inputs">${name}</div>`);

@@ -91,4 +91,4 @@ const createCharOptions = (char) => {
 
 showAllChar();
 showAllItems();
-createOptions();
+createCharOptions();

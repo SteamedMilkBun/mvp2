@@ -81,7 +81,8 @@ const showSelectedItem = (item) => {
 }
 
 const createCharOptions = (char) => {
-    const $allInputsDiv = $(`<div class='all-inputs'>Inputs Here</div>`);
+    $allInputsDiv.empty();
+    const $allInputsDiv = $(`<div class='all-inputs'>ß</div>`);
     for (let column in char) {
         const $columnDiv = $(`<div id='inputs'>${column}</div>`);
         $allInputsDiv.append($columnDiv);

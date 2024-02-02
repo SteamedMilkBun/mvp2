@@ -84,7 +84,7 @@ const createCharOptions = (char) => {
     $('.all-inputs').empty();
     const $allInputsDiv = $(`<div class='all-inputs'></div>`);
     for (let column in char) {
-        const $columnDiv = $(`<div id='inputs'>${column}</div>`);
+        const $columnDiv = $(`<div id='inputs'>${column}: ${Object.values(column)[0]}</div>`);
         $allInputsDiv.append($columnDiv);
     }
     $optionsContainer.append($allInputsDiv);
